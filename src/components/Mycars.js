@@ -1,34 +1,41 @@
 import React, { Component } from "react";
 import Car from "./Cars";
 
-class Mycars extends Component {
-  //   noCopy = () => {
-  //     alert("Annette ne copie pas");
-  //   };
 
-  //   addStyle = (e) => {
-  //     console.log(e.target);
 
-  //     if (e.target.classList.contains("styled")) {
-  //       e.target.classList.remove("styled");
-  //     } else {
-  //       e.target.classList.add("styled");
-  //     }
-  //   };
+
+export default class Mycars extends Component {
+
+  // console.log(this);
+  state = {
+    voitures: [
+      { name: 'ford', color: 'red', year: 2000 },
+      { name: 'Mercedes', color: 'black', year: 2010 },
+      { name: 'Peugeot', color: 'green', year: 2018 },
+    ]
+  }
+
+  ajouterdixans = () => {
+    const changeState = this.state.voitures.map((param) => {
+      return param.year -= 10;
+    })
+    this.setState({
+      changeState
+    })
+  }
   render() {
-    // console.log(this);
+    const year = new Date().getFullYear();
+
     return (
       <div>
         <h1>{this.props.title} </h1>
-        <p onCopy={this.noCopy}>
-          Quand la vie ne vaut plus la peine d'être vecue Quand la vie ne vaut
-          plus la peine d'être vecue
-        </p>
-        <Car color="red">Ford</Car>
-        <Car color="black">Mercedes</Car>
-        <Car color="whithe">Peougeot</Car>
+
+        <button onClick={this.ajouterdixans}> + 10 ans</button>
+
+        <Car color={this.state.voitures[0].color} year={year - this.state.voitures[0].year + " ans"}>{this.state.voitures[0].name}</Car>
+        <Car color={this.state.voitures[1].color} year={year - this.state.voitures[1].year + " ans"}>{this.state.voitures[1].name}</Car>
+        <Car color={this.state.voitures[2].color} year={year - this.state.voitures[2].year + " ans"}>{this.state.voitures[2].name}</Car>
       </div>
     );
   }
 }
-export default Mycars;
