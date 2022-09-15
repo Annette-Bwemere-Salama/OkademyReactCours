@@ -3,41 +3,38 @@ import "./App.css";
 import Mycars from "./components/Mycars";
 // import Car from "./components/Cars";
 class App extends Component {
-  state = {
-    titre: "Mon Catalogue voitures",
-  };
 
   changeTitle = (e) => {
     // console.log(e.target);
 
-  //   this.setState({
-  //     titre: "Mon nouveau titre",
-  //   });
-  // };
+    //   this.setState({
+    //     titre: "Mon nouveau titre",
+    //   });
+    // };
 
-  // changeViaParam = (titre) => {
-  //   this.setState({
-  //     titre: titre,
-  //   });
-  // };
+    // changeViaParam = (titre) => {
+    //   this.setState({
+    //     titre: titre,
+    //   });
+    // };
 
-  // changeViaBind = (param) => {
-  //   this.setState({
-  //     titre: param,
-  //   });
-  // };
+    // changeViaBind = (param) => {
+    //   this.setState({
+    //     titre: param,
+    //   });
+    // };
 
-  // changeViaInput = (e) => {
-  //   this.setState({
-  //     titre: e.target.value,
-  //   });
+    // changeViaInput = (e) => {
+    //   this.setState({
+    //     titre: e.target.value,
+    //   });
     // console.log(e.target);
   };
 
   render() {
     return (
       <div className="App">
-        <Mycars title={this.state.titre} />
+        <Mycars />
 
         {/* <button onClick={this.changeTitle}>Changer le nom en dure</button>
         <button onClick={() => this.changeViaParam("Titre via un parametre")}>
