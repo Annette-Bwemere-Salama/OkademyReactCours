@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, Fragment } from "react";
 import Car from "./Cars";
 
 
@@ -30,25 +30,34 @@ export default class Mycars extends Component {
     const year = new Date().getFullYear();
 
     return (
-      <div>
+      <Fragment>
         <h1>{this.state.titre} </h1>
 
         <button onClick={this.ajouterdixans}> + 10 ans</button>
 
         {/* <Car color={this.state.voitures[0].color} year={year - this.state.voitures[0].year + " ans"}>{this.state.voitures[0].name}</Car>
         <Car color={this.state.voitures[1].color} year={year - this.state.voitures[1].year + " ans"}>{this.state.voitures[1].name}</Car>
+        
         <Car color={this.state.voitures[2].color} year={year - this.state.voitures[2].year + " ans"}>{this.state.voitures[2].name}</Car> */}
-        {
-          this.state.voitures.map((voiture, index) => {
-            return (
-              <div key={index}>
-                <Car nom={voiture.name} color={voiture.color} year={year - voiture.year + "ans"} />
-              </div>
+        <table className="carsTable">
+          <tr>
+            <th>Marque</th>
+            <th>Age</th>
+            <th>Couleur</th>
 
-            )
-          })
-        }
-      </div>
+          </tr>
+          {
+            this.state.voitures.map((voiture, index) => {
+              return (
+                <Fragment key={index}>
+                  <Car nom={voiture.name} color={voiture.color} year={year - voiture.year + " ans"} />
+                </Fragment>
+
+              )
+            })
+          }
+        </table>
+      </Fragment>
     );
   }
 }

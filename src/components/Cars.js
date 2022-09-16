@@ -1,17 +1,18 @@
-import React from "react";
+import React, { Fragment } from "react";
 const Car = ({ color, nom, year }) => {
 
-    const colorInfo = color ? (<p>Couleur: {color}</p>) : (<p>Couleur: Néant</p>)
+    const colorInfo = color ? (`Couleur: ${color}`) : ('Couleur: Néant')
 
 
     if (nom) {
         return (
-            <div style={{ background: 'pink', width: '400px', padding: '10px', margin: '10px' }}>
-                <p>Marque: {nom}</p>
-                <p>Age: {year}</p>
-                {colorInfo}
-
-            </div>
+            <Fragment style={{ background: 'pink', width: '400px', padding: '10px', margin: '10px' }}>
+                <tr>
+                    <td>Marque: {nom}</td>
+                    <td>Age: {year}</td>
+                    <td>{colorInfo}</td>
+                </tr>
+            </Fragment>
         )
     } else {
         return null;
